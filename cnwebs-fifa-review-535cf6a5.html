@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 稳定入口说明页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f3f5;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1f2a3a;
+            line-height: 1.6;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrap {
+            max-width: 1080px;
+            width: 100%;
+        }
+
+        /* hero 区域 ———— 偏知识型引言 */
+        .hero {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.04);
+            padding: 2.8rem 2.4rem;
+            margin-bottom: 2.2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .hero:hover {
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.06);
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 530;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+            color: #0f1a2b;
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            color: #425066;
+            font-weight: 390;
+            max-width: 680px;
+            margin-bottom: 0.9rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: #3c4a5e;
+            max-width: 780px;
+        }
+
+        .hero .inline-link {
+            background: #eef1f5;
+            padding: 0.1rem 0.45rem;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #1f2a3a;
+            font-weight: 500;
+            border-bottom: 1px solid #bcc5d0;
+            transition: background 0.15s, border-color 0.15s;
+        }
+
+        .hero .inline-link:hover {
+            background: #d9e0ea;
+            border-color: #7c8ba0;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.8rem 1.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 0 0 1px rgba(0,0,0,0.04);
+            transition: transform 0.15s ease, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04), 0 0 0 1px rgba(0,0,0,0.06);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 540;
+            margin-bottom: 0.55rem;
+            color: #13202e;
+            letter-spacing: -0.01em;
+            border-left: 4px solid #b3c2d4;
+            padding-left: 0.8rem;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #2f3d51;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0.2rem;
+            margin-top: 0.4rem;
+        }
+
+        .card ul li {
+            padding: 0.15rem 0 0.15rem 1.2rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0.1rem;
+            color: #6e809b;
+            font-weight: 700;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e3e9f1;
+            color: #1a2b40;
+            font-size: 0.75rem;
+            font-weight: 470;
+            padding: 0.1rem 0.6rem;
+            border-radius: 40px;
+            letter-spacing: 0.02em;
+            margin-right: 0.3rem;
+            border: 1px solid #ced7e3;
+        }
+
+        .scenario-note {
+            margin-top: 0.8rem;
+            background: #f6f9fe;
+            border-radius: 14px;
+            padding: 0.7rem 1rem;
+            border: 1px solid #e2e9f2;
+            font-size: 0.88rem;
+            color: #314159;
+        }
+
+        /* 提示区块 */
+        .tip-section {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.4rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 0 0 1px rgba(0,0,0,0.04);
+            margin-bottom: 2rem;
+        }
+
+        .tip-section h2 {
+            font-size: 1.2rem;
+            font-weight: 530;
+            margin-bottom: 0.6rem;
+            color: #142433;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .tip-section h2 span {
+            background: #dce4ef;
+            border-radius: 30px;
+            padding: 0.05rem 0.7rem;
+            font-size: 0.75rem;
+            font-weight: 480;
+            color: #1d3148;
+        }
+
+        .faq-summary {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 2rem;
+            margin-top: 0.7rem;
+        }
+
+        .faq-item {
+            flex: 1 1 180px;
+            background: #f0f3f8;
+            border-radius: 14px;
+            padding: 0.8rem 1rem;
+            border: 1px solid #e3eaf2;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 550;
+            font-size: 0.9rem;
+            color: #1d3048;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            font-size: 0.85rem;
+            color: #3b4d64;
+            margin: 0;
+        }
+
+        .emphasis-link {
+            display: inline-block;
+            background: #eef2f8;
+            padding: 0.1rem 0.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #1f2f42;
+            font-weight: 480;
+            border: 1px solid #cad4e0;
+            transition: background 0.15s;
+        }
+
+        .emphasis-link:hover {
+            background: #dae2ed;
+            border-color: #abb8c9;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .card {
+                padding: 1.4rem 1.3rem;
+            }
+
+            .tip-section {
+                padding: 1.5rem 1.3rem;
+            }
+
+            .faq-summary {
+                flex-direction: column;
+                gap: 0.6rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero .sub {
+                font-size: 1rem;
+            }
+
+            .card h2 {
+                font-size: 1.1rem;
+            }
+        }
+
+        footer {
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: #5a6b7e;
+            text-align: center;
+            border-top: 1px solid #dbe2ec;
+            padding-top: 1.5rem;
+            letter-spacing: 0.01em;
+        }
+
+        footer a {
+            color: #365174;
+            text-decoration: none;
+            border-bottom: 1px solid #bcc9da;
+        }
+
+        footer a:hover {
+            border-bottom: 1px solid #3b5e82;
+        }
+
+        .dot-divider {
+            margin: 0 0.4rem;
+            color: #a2b3c7;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <!-- hero 摘要 / 入口说明 -->
+    <div class="hero">
+        <h1>⚽ 世界杯 · 稳定访问页面</h1>
+        <div class="sub">一份关于赛事实时信息与可靠路径的说明</div>
+        <p>
+            大多数用户通过搜索引擎或社交推荐找到赛事内容聚合页。本页面作为信息前置页，旨在帮助浏览者了解
+            <a href="https://cnwebs-fifa-wc.com" class="inline-link">世界杯</a>
+            相关内容的组织方式、常见使用场景以及访问注意事项。以下摘要、特点与建议均基于常规网站结构总结，不涉及任何实时数据或未公开功能。
+        </p>
+    </div>
+
+    <!-- 两列卡片：亮点 + 使用建议 -->
+    <div class="card-grid">
+        <div class="card">
+            <h2>📌 页面内容亮点</h2>
+            <ul>
+                <li><span class="badge">结构</span> 清晰分区：赛程、队伍、统计、新闻摘要各自独立</li>
+                <li><span class="badge">响应</span> 适配手机与桌面，不依赖第三方插件</li>
+                <li><span class="badge">语境</span> 中文界面，术语与队伍名称以通用译名为准</li>
+                <li><span class="badge">导航</span> 主菜单固定，大洲/小组筛选逻辑简洁</li>
+            </ul>
+            <div class="scenario-note">
+                <strong>📋 适用场景举例</strong>：赛前快速查看对阵、赛后查阅积分变化、了解晋级规则说明。
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🧭 使用建议</h2>
+            <ul>
+                <li>优先使用桌面浏览器或平板访问，信息密度更高</li>
+                <li>赛程页面按时间倒序排列，可配合筛选查找特定轮次</li>
+                <li>球队页面包含历史交锋卡片，适合深度浏览</li>
+                <li>移动端手势左右滑动可切换小组/淘汰赛视图</li>
+            </ul>
+            <p style="margin-top: 0.7rem; background: #f4f7fc; padding: 0.4rem 0.8rem; border-radius: 30px; display: inline-block; font-size:0.85rem;">
+                ⚡ 建议在 Wi-Fi 环境下首次加载，以获得完整样式资源。
+            </p>
+        </div>
+    </div>
+
+    <!-- 提示 + FAQ 摘要 —— 可信但克制 -->
+    <div class="tip-section">
+        <h2>
+            📎 访问说明 · 常见关注点
+            <span>FAQ 摘要</span>
+        </h2>
+        <div class="faq-summary">
+            <div class="faq-item">
+                <strong>是否需要登录？</strong>
+                <p>浏览基本内容无需注册。部分个性化功能（如收藏队伍）可能需要创建账号，页面会有明确提示。</p>
+            </div>
+            <div class="faq-item">
+                <strong>数据更新频率？</strong>
+                <p>比赛进行期间数据同步较为频繁，常规时段按小时更新。页面角落会显示最近更新时间。</p>
+            </div>
+            <div class="faq-item">
+                <strong>链接可靠性</strong>
+                <p>所有内部链接均指向同一域名下的子页面。外部资源链接会在新标签打开并标注来源。</p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #3d506a;">
+            🔍 若需要直接访问赛事主站，可点击此处的
+            <a href="https://cnwebs-fifa-wc.com" class="emphasis-link">世界杯</a>
+            ，页面将跳转至常规入口。建议首次访问时清空浏览器缓存以确保样式与脚本正常加载。
+        </p>
+    </div>
+
+    <!-- 轻量化场景/补充细节 (嵌入第二个链接, 保持自然) -->
+    <div style="background: #ffffff; border-radius: 20px; padding: 1.4rem 1.8rem; box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 0 0 1px rgba(0,0,0,0.04); margin-bottom: 1.2rem;">
+        <p style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.2rem 0.6rem;">
+            <span style="font-weight: 490; color: #1c314b;">🗺️ 访问路径提示</span>
+            <span style="color: #4d627b;">—</span>
+            <span style="color: #3a4f69;">若从浏览器收藏夹或笔记应用内跳转，请确保网址前缀为 <code style="background: #e7edf5; padding:0 0.3rem; border-radius:4px; font-size:0.88rem;">https://cnwebs-fifa-wc.com</code> 。正确识别主域有助于避开中间跳转页。关于
+            <a href="https://cnwebs-fifa-wc.com" style="color:#1f3a5e; text-decoration: none; border-bottom: 1px dashed #758da8;">世界杯</a>
+            的更多页面信息，可在站点内「关于」板块查阅版本说明。</span>
+        </p>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <span>基于公共信息整理 · 稳定访问介绍页</span>
+        <span class="dot-divider">·</span>
+        <span>页面版本 2025 · 非官方</span>
+        <span class="dot-divider">·</span>
+        <a href="https://cnwebs-fifa-wc.com">世界杯</a>
+    </footer>
+</div>
+</body>
+</html>
