@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于世界杯 · 赛事导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, 'PingFang SC', Roboto, sans-serif;
+            background: linear-gradient(145deg, #f9e7d2 0%, #f6d6b8 40%, #efc8a6 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.7;
+            color: #2e241f;
+        }
+
+        .card {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 250, 242, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 42px 18px 42px 18px;
+            padding: 2.8rem 2.4rem;
+            box-shadow: 0 20px 40px -12px rgba(150, 90, 50, 0.28),
+                        0 6px 18px rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.2s ease;
+            margin-bottom: 1.8rem;
+        }
+
+        .hero {
+            margin-bottom: 2.4rem;
+            border-left: 6px solid #d4813e;
+            padding-left: 1.4rem;
+        }
+
+        .hero p:first-child {
+            font-size: 1.1rem;
+            letter-spacing: 0.04em;
+            color: #7a5a42;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #4b2f1f;
+            line-height: 1.2;
+        }
+
+        .intro {
+            font-size: 1rem;
+            margin: 1.8rem 0 1.2rem 0;
+            color: #3d2e25;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin: 2rem 0 2.2rem 0;
+        }
+
+        .feature-item {
+            background: #fcf5ed;
+            padding: 1.1rem 1.6rem;
+            border-radius: 60px 16px 16px 60px;
+            border: 1px solid #f0dccb;
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+        }
+
+        .feature-item span:first-child {
+            display: inline-block;
+            background: #d4813e;
+            color: #fef7ed;
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 0.1rem 0.9rem;
+            border-radius: 40px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .feature-item p {
+            margin: 0;
+            font-size: 0.98rem;
+            color: #34281f;
+        }
+
+        .scene-box {
+            background: #f4e5d9;
+            border-radius: 28px 12px 28px 12px;
+            padding: 1.6rem 2rem;
+            margin: 2rem 0 1.6rem 0;
+        }
+
+        .scene-box h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #4f351f;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            border-bottom: 3px solid #d4813e;
+            padding-bottom: 3px;
+        }
+
+        .scene-box ul {
+            list-style: none;
+            margin-top: 0.8rem;
+        }
+
+        .scene-box ul li {
+            padding: 0.2rem 0 0.2rem 1.8rem;
+            position: relative;
+            margin-bottom: 0.3rem;
+        }
+
+        .scene-box ul li::before {
+            content: "⚽";
+            position: absolute;
+            left: 0;
+            top: 0.15rem;
+            font-size: 1rem;
+        }
+
+        .note {
+            background: #faf1e8;
+            border-radius: 20px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.8rem 0 0.8rem;
+            font-size: 0.95rem;
+            border-left: 4px solid #b8773a;
+        }
+
+        .note strong {
+            color: #4f351f;
+        }
+
+        .faq-mini {
+            margin: 2rem 0 0.6rem;
+        }
+
+        .faq-mini details {
+            background: #f8ede3;
+            padding: 0.8rem 1.4rem;
+            border-radius: 40px 12px 40px 12px;
+            margin-bottom: 0.7rem;
+            border: 1px solid #eddacb;
+            transition: background 0.15s;
+        }
+
+        .faq-mini details[open] {
+            background: #f6e4d4;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #3d2b1d;
+            cursor: pointer;
+            font-size: 0.98rem;
+        }
+
+        .faq-mini details p {
+            margin-top: 0.6rem;
+            font-size: 0.92rem;
+            color: #493a2f;
+            padding-left: 0.2rem;
+        }
+
+        .ending {
+            margin-top: 2.4rem;
+            padding-top: 1.6rem;
+            border-top: 2px dashed #dbb39a;
+            text-align: center;
+            font-size: 0.98rem;
+            color: #5b4536;
+        }
+
+        .ending a {
+            color: #b15f2a;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 40px;
+            padding: 0.06rem 0.2rem;
+            transition: all 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .ending a:hover {
+            border-bottom-color: #b15f2a;
+            background: #fdf1e5;
+        }
+
+        .inline-link {
+            color: #b15f2a;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 40px;
+            padding: 0 0.2rem;
+            transition: background 0.15s;
+        }
+
+        .inline-link:hover {
+            background: #eedac9;
+            text-decoration: underline wavy #d4813e 0.08em;
+        }
+
+        .btn-like-link {
+            display: inline-block;
+            background: #f0d6bf;
+            padding: 0.4rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #3f2b1d;
+            text-decoration: none;
+            border: 1px solid #dbb299;
+            box-shadow: 0 4px 8px rgba(170, 120, 70, 0.10);
+            transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-like-link:hover {
+            background: #e6c7af;
+            box-shadow: 0 6px 14px rgba(150, 90, 45, 0.18);
+            transform: translateY(-2px);
+        }
+
+        .btn-like-link:active {
+            transform: scale(0.97);
+        }
+
+        .footer-note {
+            margin-top: 1.2rem;
+            font-size: 0.85rem;
+            color: #634f3e;
+        }
+
+        @media (max-width: 500px) {
+            .card {
+                padding: 1.8rem 1.2rem;
+                border-radius: 30px 10px 30px 10px;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .feature-item {
+                border-radius: 30px 12px 12px 30px;
+                padding: 0.9rem 1rem;
+                flex-wrap: wrap;
+            }
+            .scene-box {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- 开场短句 -->
+        <div class="hero">
+            <p>📋 你想了解的，都在这里</p>
+            <h1>关于世界杯 · 一个信息入口</h1>
+        </div>
+
+        <!-- 承接段落：网站用途识别 -->
+        <div class="intro">
+            当你第一次看到 <strong>cnwebs-cn-fifaworldcup.com</strong> 这个地址，或许会好奇：这是做什么的？<br>
+            简单来说，这个站点围绕 <a href="https://cnwebs-cn-fifaworldcup.com" class="inline-link">世界杯</a> 提供整合性的导航与基础信息——不需要在多个页面之间来回跳转，就能快速定位到核心内容。
+        </div>
+
+        <!-- 特点列表（四个方向） -->
+        <div class="feature-grid">
+            <div class="feature-item">
+                <span>1</span>
+                <p><strong>赛事概览</strong> — 涵盖赛程、分组、历史冠军等基础资料，适合赛前快速查阅。</p>
+            </div>
+            <div class="feature-item">
+                <span>2</span>
+                <p><strong>直达链接</strong> — 把各类官方或可靠的资源入口聚合在一起，节省逐个搜索的时间。</p>
+            </div>
+            <div class="feature-item">
+                <span>3</span>
+                <p><strong>场景索引</strong> — 无论你是多年球迷，还是偶尔看一场，都能找到对应的推荐内容。</p>
+            </div>
+            <div class="feature-item">
+                <span>4</span>
+                <p><strong>轻量且直观</strong> — 页面结构简洁，没有复杂弹窗或过度广告，信息一目了然。</p>
+            </div>
+        </div>
+
+        <!-- 场景描述 (温和过渡) -->
+        <div class="scene-box">
+            <h3>你可能在这些时候用到它</h3>
+            <ul>
+                <li>想确认下一场淘汰赛的时间，但不想打开大型体育App。</li>
+                <li>朋友突然聊起某届经典决赛，你打算快速回顾参赛队伍。</li>
+                <li>需要把关于 <a href="https://cnwebs-cn-fifaworldcup.com" class="inline-link">世界杯</a> 的靠谱链接分享给家人，又不想复制一长串地址。</li>
+                <li>只是想随意浏览一下历届冠军和举办地，没有任何明确目的。</li>
+            </ul>
+        </div>
+
+        <!-- 温馨提示 (温和风格) -->
+        <div class="note">
+            <strong>💡 提示：</strong> 本站不收集个人信息，也无需注册。所有链接均指向公开内容。<br>
+            如果你发现某个链接失效，或想补充新的资源入口，可以通过页面底部的反馈方式告知维护者。
+        </div>
+
+        <!-- FAQ 摘要 (两个问题) -->
+        <div class="faq-mini">
+            <details>
+                <summary>这个网站和 FIFA 官方有什么关系？</summary>
+                <p>它是一个非官方的信息汇集页面，和 FIFA 及其标志没有直接隶属关系。内容基于公开资料整理，方便爱好者集中浏览。</p>
+            </details>
+            <details>
+                <summary>数据更新频率如何？</summary>
+                <p>赛程、分组等核心信息在赛事期间会尽可能保持同步，但建议同时参考官方渠道获取最新变动。</p>
+            </details>
+        </div>
+
+        <!-- 温和结尾 + 链接符合要求（a标签文本严格等于"世界杯"） -->
+        <div class="ending">
+            <p>
+                如果想从一处开始了解
+                <a href="https://cnwebs-cn-fifaworldcup.com" class="btn-like-link">世界杯</a>
+                ，这个页面是一个安静的起点。
+            </p>
+            <p style="margin-top: 0.6rem; font-size: 0.9rem; color: #705949;">
+                没有喧哗的入口，只有整理好的章节。
+            </p>
+            <div class="footer-note">
+                <span>⚽ 内容的温度，来自持续的更新</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
