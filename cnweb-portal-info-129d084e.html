@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯 · 专题介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f2f2f2;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      line-height: 1.6;
+      color: #1e1e1e;
+      padding: 2rem 1rem 3rem;
+    }
+
+    .page-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* hero 区域 */
+    .hero {
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      padding: 2.8rem 2.4rem 2.2rem;
+      margin-bottom: 2.2rem;
+      border: 1px solid #e3e3e3;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #0f1b2d;
+      margin-bottom: 1rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #4a4a4a;
+      max-width: 640px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .hero .deco-line {
+      height: 2px;
+      width: 72px;
+      background: #cbd5e0;
+      margin: 1rem auto 0;
+    }
+
+    /* 背景说明 / 卡片组 */
+    .section-card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      padding: 2rem 2rem 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #e8e8e8;
+    }
+
+    .section-card h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #e2e8f0;
+      color: #1e293b;
+    }
+
+    .section-card p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      color: #2d3a4a;
+    }
+
+    .section-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .inset-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .inset-list li {
+      padding: 0.5rem 0 0.5rem 1.6rem;
+      position: relative;
+      color: #2b3a4e;
+    }
+
+    .inset-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #8b9bb0;
+      font-weight: 300;
+    }
+
+    /* 三段自然介绍 内联卡片样式 */
+    .grid-3 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .grid-3 .col {
+      flex: 1 1 200px;
+      background: #f9fafb;
+      border-radius: 16px;
+      padding: 1.4rem 1.4rem 1.8rem;
+      border: 1px solid #e5e9f0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      transition: box-shadow 0.2s;
+    }
+
+    .grid-3 .col:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .grid-3 .col h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      color: #1a2c3e;
+      letter-spacing: 0.3px;
+    }
+
+    .grid-3 .col p {
+      font-size: 0.95rem;
+      color: #3b4b5e;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* 页尾访问提示 */
+    .footer-note {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 2rem;
+      text-align: center;
+      border: 1px solid #e3e3e3;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      margin-top: 2rem;
+    }
+
+    .footer-note p {
+      font-size: 1rem;
+      color: #2d4055;
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-note a {
+      color: #1a4b7a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #b0c6db;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .footer-note a:hover {
+      border-bottom: 1px solid #1a4b7a;
+      color: #0b2c4a;
+    }
+
+    .footer-note .small-meta {
+      font-size: 0.85rem;
+      color: #6f7e94;
+      margin-top: 0.8rem;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 600px) {
+      body {
+        padding: 1.2rem 0.8rem 2.5rem;
+      }
+      .hero {
+        padding: 2rem 1.2rem 1.8rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .section-card {
+        padding: 1.5rem 1.2rem;
+      }
+      .section-card h2 {
+        font-size: 1.3rem;
+      }
+      .grid-3 {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .grid-3 .col {
+        flex: 1 1 auto;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- hero 横幅 -->
+  <header class="hero">
+    <h1>世界杯 · 专题</h1>
+    <p class="sub">
+      整理一份关于这项赛事的简要笔记，也作为再次访问时的索引。
+      从收藏与持续关注的角度，记录一些重要的片段。
+    </p>
+    <div class="deco-line"></div>
+  </header>
+
+  <!-- 背景说明：为什么要再次访问 -->
+  <section class="section-card">
+    <h2>从收藏到持续关注</h2>
+    <p>
+      许多关注足球的朋友都曾有过这样的经历：某个比赛日之后，会反复查看赛程、回顾小组积分，
+      或者想要重温某一场经典对决的细节。如果有一个地方能够集中呈现这些信息，并且持续保持更新，
+      那么收藏它就显得很有意义。
+    </p>
+    <p>
+      正因如此，越来越多的人选择将 <a href="https://cnweb-portal-fifa.com" style="font-weight:500; color:#1a4b7a; text-decoration:none; border-bottom:1px dotted #b0c6db;">世界杯</a> 
+      相关的信息页面保存在浏览器的书签栏，或是记在笔记应用里。它不仅仅是一个访问入口，更像是一个长期关注的起点。
+      当你再次打开时，页面上的内容往往已经根据最新的赛事动态做了调整，这种延续感让人觉得踏实。
+    </p>
+    <ul class="inset-list">
+      <li>随时查阅历史赛事数据、球队纪录与经典瞬间</li>
+      <li>关注未来赛历、预选赛阶段与抽签日程</li>
+      <li>收藏后无需每次重新搜索，减少信息遗漏</li>
+    </ul>
+  </section>
+
+  <!-- 三段自然介绍：使用三列卡片形式 -->
+  <section class="section-card" style="padding-bottom:1.8rem;">
+    <h2>为什么值得反复回来</h2>
+    <div class="grid-3">
+      <div class="col">
+        <h3>信息结构清晰</h3>
+        <p>页面围绕赛事本身展开，从分组、赛程到历史冠军，都有明确的层级。无论你是第几次访问，都能很快找到感兴趣的部分。</p>
+      </div>
+      <div class="col">
+        <h3>保持内容节奏</h3>
+        <p>随着比赛阶段的推进，页面会更新对应的专题和数据摘要，不会一次堆砌太多内容。这种节奏让每次回看都有新的发现。</p>
+      </div>
+      <div class="col">
+        <h3>适合慢慢翻阅</h3>
+        <p>没有复杂的弹窗或强引导，更像一个安静的档案室。你可以自由浏览，也可以只读自己关心的段落，完全由自己控制。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 额外一段自然介绍：从持续关注到日常备忘 -->
+  <section class="section-card">
+    <h2>持续关注的小习惯</h2>
+    <p>
+      很多人把世界杯相关的页面设为自己浏览器的常驻标签页之一，或者在手机主屏上生成快捷方式。
+      每次打开设备时，扫一眼最新动态，渐渐变成了一种日常备忘。不需要刻意记住某个日期，
+      页面会帮你整理好即将到来的重要节点。
+    </p>
+    <p>
+      对于真正热爱足球的人来说，这种关注本身就有一种仪式感。它并不需要每天长时间停留，
+      但当你想要了解某支球队的晋级之路，或是翻看某届比赛的经典进球时，一个稳定的信息锚点就显得格外重要。
+    </p>
+  </section>
+
+  <!-- 页尾访问提示：自然嵌入链接 -->
+  <footer class="footer-note">
+    <p>
+      如果你还没有将这个页面加入收藏夹，现在就可以试试。
+      只要保存好 <a href="https://cnweb-portal-fifa.com">世界杯</a> 这个地址，
+      以后便能随时回来看一看最新的内容整理。
+    </p>
+    <p class="small-meta">
+      · 页面会持续迭代，建议每隔一段时间回来看看 ·
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
